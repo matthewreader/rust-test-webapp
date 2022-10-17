@@ -14,6 +14,7 @@ mod routes;
 #[path = "../study/state.rs"]
 mod state;
 
+use errors::StudyError;
 use routes::*;
 use state::AppState;
 
@@ -35,7 +36,7 @@ async fn main() -> io::Result<()> {
         App::new()
             .app_data(shared_data.clone())
             .app_data(web::JsonConfig::default().error_handler(|_err, _req| {
-                EzyTutorError::InvalidInput("Please provide valid Json input".to_string()).into()
+                StudyError::InvalidInput("Please provide valid Json input".to_string()).into()
             }))
             .configure(study_routes)
     };

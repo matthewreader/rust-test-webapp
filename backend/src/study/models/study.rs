@@ -1,5 +1,4 @@
 use actix_web::web;
-use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Debug, Clone, sqlx::FromRow)]

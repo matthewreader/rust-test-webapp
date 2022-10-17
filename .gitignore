@@ -11,6 +11,6 @@ Cargo.lock
 
 # WASM target
 /target/*
-/frontend/target/*
+/frontend/target/
 /frontend/dist/*
-/backend/target/*
+/backend/target

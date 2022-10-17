@@ -15,8 +15,5 @@ sqlx = {version = "0.6.2", default_features = false, features = ["postgres","run
 # Data serialization library
 serde = { version = "1.0.145", features = ["derive"] }
 
-# Other utils
-chrono = {version = "0.4.22", features = ["serde"]}
-
 # Openssl for linux build
 openssl = { version = "0.10.42", features = ["vendored"] }
