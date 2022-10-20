@@ -4,7 +4,7 @@ use yew::prelude::*;
 fn app() -> Html {
     html! {
         <>
-            <h1>{ "RustConf Explorer" }</h1>
+            <h1>{ "RustConf Explorer!" }</h1>
             <div>
                 <h3>{"Videos to watch"}</h3>
                 <p>{ "John Doe: Building and breaking things" }</p>

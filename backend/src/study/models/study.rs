@@ -5,13 +5,13 @@ use serde::{Deserialize, Serialize};
 pub struct Study {
     pub study_id: i32,
     pub protocol_id: String,
-    pub protocol_description: String,
+    pub protocol_description: Option<String>,
 }
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct CreateStudy {
     pub protocol_id: String,
-    pub protocol_description: String,
+    pub protocol_description: Option<String>,
 }
 
 impl From<web::Json<CreateStudy>> for CreateStudy {
@@ -32,8 +32,8 @@ pub struct UpdateStudy {
 impl From<web::Json<UpdateStudy>> for UpdateStudy {
     fn from(update_study: web::Json<UpdateStudy>) -> Self {
         UpdateStudy {
-            protocol_id: new_study.protocol_id.clone(),
-            protocol_description: new_study.protocol_description.clone(),
+            protocol_id: update_study.protocol_id.clone(),
+            protocol_description: update_study.protocol_description.clone(),
         }
     }
 }

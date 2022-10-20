@@ -1,4 +1,5 @@
-use crate::models::study::{CreateStudy, UpdateStudy};
+use crate::dbaccess::study::*;
+use crate::models::study::{CreateStudy};
 use crate::state::AppState;
 use crate::errors::StudyError;
 use actix_web::{web, HttpResponse};
@@ -12,7 +13,7 @@ pub async fn post_new_study(
         .await
         .map(|study| HttpResponse::Ok().json(study))
 }
-
+/*
 pub async fn get_study_details(
     app_state: web::Data<AppState>,
     web::Path(study_id): web::Path<i32>,
@@ -21,3 +22,4 @@ pub async fn get_study_details(
         .await
         .map(|study| HttpResponse::Ok().json(study))
 }
+*/

@@ -5,6 +5,10 @@ use std::env;
 use std::io;
 use std::sync::Mutex;
 
+#[path = "../study/dbaccess/mod.rs"]
+mod dbaccess;
+#[path = "../study/errors.rs"]
+mod errors;
 #[path = "../study/handlers/mod.rs"]
 mod handlers;
 #[path = "../study/models/mod.rs"]
@@ -13,6 +17,7 @@ mod models;
 mod routes;
 #[path = "../study/state.rs"]
 mod state;
+
 
 use errors::StudyError;
 use routes::*;
@@ -38,6 +43,7 @@ async fn main() -> io::Result<()> {
             .app_data(web::JsonConfig::default().error_handler(|_err, _req| {
                 StudyError::InvalidInput("Please provide valid Json input".to_string()).into()
             }))
+            .configure(general_routes)
             .configure(study_routes)
     };
 
