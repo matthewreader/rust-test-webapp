@@ -2,17 +2,15 @@ use crate::errors::StudyError;
 use crate::models::study::*;
 use sqlx::postgres::PgPool;
 
-pub async fn post_new_study_db(
-    pool: &PgPool,
-    new_study: CreateStudy,
-) -> Result<Study, StudyError> {
-    let study_row= sqlx::query_as!(
+pub async fn post_new_study_db(pool: &PgPool, new_study: CreateStudy) -> Result<Study, StudyError> {
+    let study_row = sqlx::query_as!(
         Study,
         "INSERT INTO study (protocol_id, protocol_description) 
         VALUES ($1,$2) 
-        RETURNING study_id, protocol_id, protocol_description", 
-        new_study.protocol_id, 
-        new_study.protocol_description)
+        RETURNING study_id, protocol_id, protocol_description",
+        new_study.protocol_id,
+        new_study.protocol_description
+    )
     .fetch_one(pool)
     .await?;
 

@@ -17,3 +17,6 @@ serde = { version = "1.0.145", features = ["derive"] }
 
 # Openssl for linux build
 openssl = { version = "0.10.42", features = ["vendored"] }
+
+env_logger = "0.9.1"
+log = "0.4.17"

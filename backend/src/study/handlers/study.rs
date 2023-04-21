@@ -1,9 +1,8 @@
 use crate::dbaccess::study::*;
-use crate::models::study::{CreateStudy};
-use crate::state::AppState;
 use crate::errors::StudyError;
+use crate::models::study::CreateStudy;
+use crate::state::AppState;
 use actix_web::{web, HttpResponse};
-
 
 pub async fn post_new_study(
     new_study: web::Json<CreateStudy>,

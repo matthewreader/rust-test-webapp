@@ -1,5 +1,7 @@
-create table if not exists study (
-    study_id serial primary key,
-    protocol_id varchar(255),
-    protocol_description varchar(2000)
+CREATE TABLE public.study
+(
+    study_id serial NOT NULL,
+    protocol_id character varying(255) NOT NULL,
+    protocol_description character varying(2000),
+    PRIMARY KEY (study_id)
 );

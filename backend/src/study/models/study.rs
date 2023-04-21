@@ -26,7 +26,7 @@ impl From<web::Json<CreateStudy>> for CreateStudy {
 #[derive(Deserialize, Debug, Clone)]
 pub struct UpdateStudy {
     pub protocol_id: Option<String>,
-    pub protocol_description: Option<String>
+    pub protocol_description: Option<String>,
 }
 
 impl From<web::Json<UpdateStudy>> for UpdateStudy {
