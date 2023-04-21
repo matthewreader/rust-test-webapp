@@ -1,11 +1,15 @@
 [package]
 name = "rust-test-webapp"
 version = "0.1.0"
-authors = ["matthewreader"]
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[workspace]
-members = ["frontend", "backend"]
-default-members = ["backend"]
+[dependencies]
+actix-web = "4.2.1"
+actix-files = "0.6.2"
+actix-rt = "2.7.0"
+dotenv = "0.15.0"
+sqlx = {version = "0.6.2", default_features = false, features = ["postgres","runtime-tokio-rustls", "macros","chrono"]}
+serde = { version = "1.0.145", features = ["derive"] }
+openssl = { version = "0.10.42", features = ["vendored"] }
+env_logger = "0.9.1"
+log = "0.4.17"
