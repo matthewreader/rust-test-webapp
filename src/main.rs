@@ -5,22 +5,22 @@ use std::env;
 use std::io;
 use std::sync::Mutex;
 
-#[path = "./study/dbaccess/mod.rs"]
+#[path = "./dbaccess/mod.rs"]
 mod dbaccess;
-#[path = "./study/errors.rs"]
+#[path = "./errors.rs"]
 mod errors;
-#[path = "./study/handlers/mod.rs"]
+#[path = "./handlers/mod.rs"]
 mod handlers;
-#[path = "./study/models/mod.rs"]
+#[path = "./models/mod.rs"]
 mod models;
-#[path = "./study/routes.rs"]
+#[path = "./routes.rs"]
 mod routes;
-#[path = "./study/state.rs"]
+#[path = "state.rs"]
 mod state;
 
 use errors::StudyError;
-use routes::*;
 use handlers::not_found::not_found;
+use routes::*;
 use state::AppState;
 
 #[actix_rt::main]
@@ -37,6 +37,7 @@ async fn main() -> io::Result<()> {
         visit_count: Mutex::new(0),
         db: db_pool,
     });
+
     //Construct app and configure routes
     let app = move || {
         App::new()
